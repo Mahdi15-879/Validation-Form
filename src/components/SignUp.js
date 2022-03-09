@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { validate } from "./validate";
 
 const SignUp = () => {
   const [data, setData] = useState({
@@ -8,6 +9,11 @@ const SignUp = () => {
     confirmPassword: "",
     isAccepted: false,
   });
+  const [errors, setErrors] = useState({});
+
+  useEffect(() => {
+    setErrors(validate(data));
+  }, [data]);
 
   const changeHandler = (event) => {
     event.preventDefault();
