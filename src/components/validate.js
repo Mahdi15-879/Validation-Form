@@ -3,7 +3,7 @@ export const validate = (data, type) => {
 
   if (!data.email) {
     errors.email = "Email required";
-  } else if (!/\S+\.\S+/.test(data.email)) {
+  } else if (!/\S+@\S+\.\S+/.test(data.email)) {
     errors.email = "Email address is invalid";
   } else {
     delete errors.email;
